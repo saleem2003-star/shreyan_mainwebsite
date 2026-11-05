@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Shreyan IT Solutions</title>
+    <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="nav light-nav">
+    <div class="nav-container">
+        <div class="logo nav-slide">
+            <a href="../index.html"><img src="../assets/logo2.png" alt="Shreyan IT Solutions Logo"></a>
+        </div>
+
+        <ul class="nav-items nav-slide">
+            <li><a href="../index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">What we do <span class="arrow"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="#">Products</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Who we are</a></li>
+            <li><a href="#">Insights</a></li>
+            <li><a href="contact.html" class="active-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-right nav-slide">
+            <a href="https://wa.me/919398535226" class="contact-btn" target="_blank" rel="noopener">Get A Free Quote</a>
+        </div>
+    </div>
+</header>
+
+<main id="content">
+
+    <!-- ================= CONTACT HERO & CATEGORIES ================= -->
+    <section class="contact-hero-section">
+        <div class="contact-container">
+            
+            <!-- Top Heading & Subtitle Block -->
+            <div class="contact-intro-grid">
+                <div class="contact-main-title-box">
+                    <h1 class="contact-main-title">Let’s Start a Conversation</h1>
+                </div>
+                <div class="contact-subtitle-box">
+                    <p class="contact-subtitle">Reach out to our team to discover tailored IT solutions, explore strategic opportunities, or get connected with our experts.</p>
+                </div>
+            </div>
+
+            <!-- Top 3 Primary Image Cards Grid -->
+            <div class="contact-primary-grid">
+                
+                <!-- Card 1: Request for Services -->
+                <a href="#quote-form" class="contact-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80" alt="Request for Services" class="contact-card-bg">
+                    <div class="contact-card-overlay">
+                        <div class="contact-card-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="contact-card-title">Request for Services</h3>
+                    </div>
+                </a>
+
+                <!-- Card 2: Business Partnerships -->
+                <a href="mailto:info@shreyanit.in" class="contact-card">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" alt="Business Partnerships" class="contact-card-bg">
+                    <div class="contact-card-overlay">
+                        <div class="contact-card-icon">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="contact-card-title">Partnership Opportunities</h3>
+                    </div>
+                </a>
+
+                <!-- Card 3: Media Contacts -->
+                <a href="mailto:info@shreyanit.in" class="contact-card">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Media Contacts" class="contact-card-bg">
+                    <div class="contact-card-overlay">
+                        <div class="contact-card-icon">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="contact-card-title">Media Contacts</h3>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Bottom Sub-Category Links Section ("Looking for something else?") -->
+            <div class="contact-secondary-section">
+                <h4 class="secondary-heading">Looking for something else?</h4>
+                <div class="secondary-links-grid">
+                    
+                    <a href="mailto:info@shreyanit.in" class="secondary-link-item">
+                        <span>Analyst relations</span>
+                        <div class="sec-arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+
+                    <a href="mailto:info@shreyanit.in" class="secondary-link-item">
+                        <span>Corporate Social Responsibility</span>
+                        <div class="sec-arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+
+                    <a href="mailto:info@shreyanit.in" class="secondary-link-item">
+                        <span>Strategic Partnerships</span>
+                        <div class="sec-arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+
+                    <a href="mailto:info@shreyanit.in" class="secondary-link-item">
+                        <span>Website Feedback</span>
+                        <div class="sec-arrow-btn"><i class="fa-solid fa-arrow-right"></i></div>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= INTERACTIVE ENQUIRY FORM SECTION ================= -->
+    <section class="contact-form-section" id="quote-form">
+        <div class="contact-form-container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <span class="section-eyebrow">Get In Touch</span>
+                    <h2>Send Us Your Message</h2>
+                    <p>Fill out the form below and our team will get back to you within 24 hours.</p>
+                </div>
+                
+                <form class="enquiry-form" id="enquiryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType">Interested Service</label>
+                            <select id="serviceType">
+                                <option value="ai">AI & ML Solutions</option>
+                                <option value="cloud">Cloud Services</option>
+                                <option value="cyber">Cyber Security</option>
+                                <option value="web">Web Application Development</option>
+                                <option value="staffing">IT Staffing & Support</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="message">Your Message / Requirements</label>
+                        <textarea id="message" rows="5" placeholder="Tell us about your project or inquiry..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-form">
+                        <span>Send Message</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <p class="form-success-msg" id="formSuccessMsg">Thank you! Your message has been sent successfully.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer light-footer">
+    <div class="footer-container">
+        <!-- About -->
+        <div class="footer-col footer-about">
+            <div class="footer-logo">
+                <a href="../index.html"><img src="../../assets/logo2.png" alt="Shreyan IT Solutions Logo"></a>
+            </div>
+            <p>
+                Shreyan IT is a leading IT solutions provider specializing in software development, cybersecurity, cloud services, and automation. We empower businesses with innovative technologies that drive efficiency, enhance security, and accelerate growth.
+            </p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+            </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+            <h4 class="footer-heading">Services</h4>
+            <ul class="footer-links">
+                <li><a href="service.html">AI/ML</a></li>
+                <li><a href="service.html">Cloud Services</a></li>
+                <li><a href="service.html">Cybersecurity</a></li>
+                <li><a href="service.html">Staffing Services</a></li>
+                <li><a href="service.html">IT Support</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+            <h4 class="footer-heading">Contact Us</h4>
+            <ul class="footer-contact">
+                <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@shreyanit.in">info@shreyanit.in</a></li>
+                <li><i class="fa-solid fa-phone"></i><a href="tel:+919652040022">9652040022</a></li>
+                <li><i class="fa-solid fa-clock"></i><span>Monday - Friday : 9AM - 6PM</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>Copyright &copy; 2026 Shreyan IT Solutions Pvt Ltd. All rights reserved.</p>
+    </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="../home/home.js"></script>
+<script src="contact.js"></script>
+</body>
+</html>
