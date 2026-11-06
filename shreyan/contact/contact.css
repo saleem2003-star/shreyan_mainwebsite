@@ -1,24 +1,58 @@
 /* =====================================================
-   contact.css — Professional Light Theme Stylesheet
+   contact.css — Modern Premium & Interactive Stylesheet
    ===================================================== */
 
-body {
-    background-color: #f8fafc;
-    color: #0f172a;
-    font-family: 'Poppins', sans-serif;
+:root {
+    --primary-blue: #0284c7;
+    --primary-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+    --accent-glow: rgba(2, 132, 199, 0.35);
+    --dark-slate: #0f172a;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --bg-light: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --border-color: #e2e8f0;
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Active Link Glow */
 .nav-items a.active-link {
-    color: #0284c7;
+    color: var(--primary-blue);
+    position: relative;
+}
+
+.nav-items a.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
 }
 
 /* ================= CONTACT HERO SECTION ================= */
 .contact-hero-section {
-    background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
-    padding: 100px 24px 80px;
+    background: radial-gradient(circle at 10% 20%, rgba(2, 132, 199, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
+                linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
+    padding: 120px 24px 90px;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .contact-container {
@@ -28,48 +62,52 @@ body {
     z-index: 2;
 }
 
-/* Top Intro Header Grid */
+/* Header Grid */
 .contact-intro-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.1fr;
     gap: 40px;
     align-items: center;
     margin-bottom: 60px;
 }
 
 .contact-main-title {
-    font-size: clamp(2.5vw, 3.5rem, 4.2rem);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
     font-weight: 700;
-    color: #0f172a;
+    color: var(--dark-slate);
     line-height: 1.15;
     letter-spacing: -1px;
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .contact-subtitle {
     font-size: 1.15rem;
-    color: #475569;
-    line-height: 1.7;
+    color: var(--text-muted);
+    line-height: 1.8;
     font-weight: 300;
 }
 
-/* Primary 3-Card Grid with Background Images */
+/* Primary 3-Card Grid */
 .contact-primary-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-bottom: 80px;
+    gap: 32px;
+    margin-bottom: 90px;
 }
 
 .contact-card {
     position: relative;
-    height: 320px;
-    border-radius: 20px;
+    height: 340px;
+    border-radius: 24px;
     overflow: hidden;
     display: block;
     text-decoration: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e2e8f0;
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s ease;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    transition: all 0.5s var(--transition-smooth);
+    will-change: transform, box-shadow;
 }
 
 .contact-card-bg {
@@ -79,16 +117,17 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.8s var(--transition-smooth), filter 0.5s ease;
+    filter: brightness(0.9);
 }
 
 .contact-card-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        to top, 
-        rgba(15, 23, 42, 0.9) 0%, 
-        rgba(15, 23, 42, 0.4) 50%, 
+        to top,
+        rgba(15, 23, 42, 0.92) 0%,
+        rgba(15, 23, 42, 0.45) 55%,
         rgba(15, 23, 42, 0.1) 100%
     );
     padding: 36px 30px;
@@ -96,48 +135,69 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     z-index: 2;
-}
-
-.contact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: #cbd5e1;
-}
-
-.contact-card:hover .contact-card-bg {
-    transform: scale(1.08);
+    transition: background 0.4s ease;
 }
 
 .contact-card-icon {
-    font-size: 2.2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
     color: #38bdf8;
     margin-bottom: auto;
-    transition: transform 0.3s ease;
-}
-
-.contact-card:hover .contact-card-icon {
-    transform: scale(1.1) translateY(-4px);
+    transition: all 0.4s var(--transition-smooth);
 }
 
 .contact-card-title {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #ffffff;
-    line-height: 1.25;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    line-height: 1.3;
+    transition: transform 0.4s var(--transition-smooth);
 }
 
-/* Secondary Sub-Categories ("Looking for something else?") */
+/* Card Hover Interactions */
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(2, 132, 199, 0.25);
+    border-color: rgba(2, 132, 199, 0.4);
+}
+
+.contact-card:hover .contact-card-bg {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+.contact-card:hover .contact-card-icon {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(2, 132, 199, 0.4);
+}
+
+.contact-card:hover .contact-card-title {
+    transform: translateY(-2px);
+}
+
+/* Secondary Sub-Categories Section */
 .contact-secondary-section {
-    border-top: 1px solid #e2e8f0;
-    padding-top: 50px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 60px;
 }
 
 .secondary-heading {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 600;
-    color: #0f172a;
+    color: var(--dark-slate);
     margin-bottom: 30px;
+    letter-spacing: -0.3px;
 }
 
 .secondary-links-grid {
@@ -148,96 +208,128 @@ body {
 
 .secondary-link-item {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    padding: 20px 24px;
-    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 22px 26px;
+    border-radius: 16px;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    transition: all 0.3s ease;
+    gap: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.secondary-link-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .secondary-link-item span {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-weight: 500;
     color: #334155;
+    transition: color 0.3s ease;
 }
 
 .sec-arrow-btn {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: #f1f5f9;
-    color: #0284c7;
+    color: var(--primary-blue);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 13px;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: all 0.4s var(--transition-smooth);
 }
 
 .secondary-link-item:hover {
     background: #ffffff;
-    border-color: #0284c7;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.1);
+    border-color: rgba(2, 132, 199, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.12);
+}
+
+.secondary-link-item:hover::before {
+    opacity: 1;
+}
+
+.secondary-link-item:hover span {
+    color: var(--primary-blue);
 }
 
 .secondary-link-item:hover .sec-arrow-btn {
-    background: #0284c7;
+    background: var(--primary-gradient);
     color: #ffffff;
-    transform: scale(1.1);
+    transform: translateX(4px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.3);
 }
-
 
 /* ================= INTERACTIVE ENQUIRY FORM ================= */
 .contact-form-section {
-    background-color: #f8fafc;
-    padding: 80px 24px 120px;
+    background-color: var(--bg-light);
+    padding: 90px 24px 130px;
+    position: relative;
 }
 
 .contact-form-container {
-    max-width: 900px;
+    max-width: 920px;
     margin: 0 auto;
 }
 
 .form-wrapper {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 24px;
-    padding: 55px 50px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 28px;
+    padding: 60px 55px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+    position: relative;
+    overflow: hidden;
 }
 
 .form-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .form-header .section-eyebrow {
-    color: #0284c7;
+    color: var(--primary-blue);
     font-weight: 600;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.form-header h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #0f172a;
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(2, 132, 199, 0.08);
+    border-radius: 30px;
     margin-bottom: 12px;
 }
 
+.form-header h2 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--dark-slate);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
 .form-header p {
-    color: #64748b;
-    font-size: 1rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
 }
 
 .enquiry-form {
@@ -256,6 +348,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    position: relative;
 }
 
 .form-group.full-width {
@@ -266,33 +359,34 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     color: #334155;
+    transition: color 0.3s ease;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    padding: 14px 18px;
-    color: #0f172a;
+    width: 100%;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 16px 20px;
+    color: var(--dark-slate);
     font-size: 0.98rem;
     font-family: 'Poppins', sans-serif;
     outline: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--transition-smooth);
+    box-sizing: border-box;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #0284c7;
-    background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
 }
 
-.form-group select option {
-    background: #ffffff;
-    color: #0f172a;
+.form-group:focus-within label {
+    color: var(--primary-blue);
 }
 
 .btn-submit-form {
@@ -300,65 +394,892 @@ body {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    padding: 16px 36px;
-    background: linear-gradient(135deg, #0284c7, #2563eb);
+    padding: 18px 40px;
+    background: var(--primary-gradient);
     color: #ffffff;
     border: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.05rem;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.3);
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.3);
+    transition: all 0.4s var(--transition-smooth);
     margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit-form i {
+    transition: transform 0.3s ease;
 }
 
 .btn-submit-form:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(2, 132, 199, 0.45);
+    box-shadow: 0 18px 35px rgba(2, 132, 199, 0.45);
+}
+
+.btn-submit-form:hover i {
+    transform: translateX(4px) translateY(-2px);
+}
+
+.btn-submit-form:active {
+    transform: translateY(-1px);
 }
 
 .form-success-msg {
     display: none;
-    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid #10b981;
+    color: #065f46;
+    padding: 16px 24px;
+    border-radius: 12px;
     font-weight: 500;
     text-align: center;
     margin-top: 15px;
+    animation: fadeIn 0.5s ease forwards;
 }
 
-
-/* ================= LIGHT FOOTER OVERRIDES ================= */
-.light-footer {
-    background-color: #0f172a !important; /* Keep footer clean & anchored in dark slate */
-    color: #94a3b8;
+/* ================= ANIMATION UTILITIES ================= */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+    will-change: opacity, transform;
 }
 
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 1024px) {
     .contact-primary-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
     .secondary-links-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
+    .contact-hero-section {
+        padding: 90px 20px 60px;
+    }
+
     .contact-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .contact-primary-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 60px;
+    }
+
+    .contact-card {
+        height: 280px;
+    }
+
+    .secondary-links-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .contact-form-section {
+        padding: 60px 16px 80px;
+    }
+
+    .form-wrapper {
+        padding: 35px 24px;
+        border-radius: 20px;
+    }
+
+    .form-row {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    .contact-primary-grid {
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .form-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* ================= ANIMATED B&W INDIA MAP ================= */
+.india-map-wrapper {
+    margin-top: 50px;
+    padding: 40px 20px;
+    background: #0f172a; /* Dark sleek contrast background */
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    aspect-ratio: 612 / 686;
+}
+
+/* Vector Map Outline */
+.india-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+.india-border {
+    fill: #1e293b;
+    stroke: #ffffff;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    transition: fill 0.5s ease;
+}
+
+/* Trigger stroke draw when scrolled into view */
+.india-map-wrapper.animated .india-border {
+    animation: drawMapOutline 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawMapOutline {
+    0% {
+        stroke-dashoffset: 2000;
+        fill: #0f172a;
+    }
+    70% {
+        stroke-dashoffset: 0;
+        fill: #0f172a;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: #1e293b;
+    }
+}
+
+/* Hyderabad Pin Marker & Radar Effect */
+.map-location-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 5;
+}
+
+.pin-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: mapPulse 2s infinite ease-out;
+}
+
+.pulse-ring.delay {
+    animation-delay: 0.8s;
+}
+
+@keyframes mapPulse {
+    0% {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+    }
+    100% {
+        width: 65px;
+        height: 65px;
+        opacity: 0;
+    }
+}
+
+/* Info Card Tooltip */
+.pin-card {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 8px 14px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.city-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.city-desc {
+    font-size: 0.72rem;
+    color: #475569;
+}
+
+.map-location-pin:hover .pin-card,
+.india-map-wrapper.animated .pin-card {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    aspect-ratio: 600 / 700;
+}
+
+
+.india-map-wrapper {
+    margin-top: 50px;
+    padding: 40px 20px;
+    background: #0f172a;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.india-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+
+
+/* ================= ANIMATED INDIA MAP ================= */
+.india-map-wrapper {
+    margin-top: 60px;
+    padding: 50px 40px;
+    background: linear-gradient(145deg, #0b1224 0%, #111827 50%, #0f172a 100%);
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grid background */
+.india-map-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+}
+
+.map-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* LEFT TEXT */
+.map-text-side {
+    padding-right: 10px;
+}
+
+.map-eyebrow {
+    display: inline-block;
+    color: #38bdf8;
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    padding: 6px 14px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 30px;
+    margin-bottom: 18px;
+}
+
+.map-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+
+.map-subtitle {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+/* CENTER MAP */
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    aspect-ratio: 1000 / 1100;
+}
+
+.india-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 12px 28px rgba(0,0,0,0.55));
+}
+
+.india-border {
+    fill: rgba(30, 41, 59, 0.6);
+    stroke: #e2e8f0;
+    stroke-width: 3;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: 3200;
+    stroke-dashoffset: 3200;
+}
+
+.india-map-wrapper.animated .india-border {
+    animation: drawMapOutline 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.india-map-wrapper.animated .sri-lanka {
+    animation: drawMapOutline 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
+}
+
+@keyframes drawMapOutline {
+    0%   { stroke-dashoffset: 3200; fill: transparent; }
+    65%  { stroke-dashoffset: 0;    fill: transparent; }
+    100% { stroke-dashoffset: 0;    fill: rgba(30, 41, 59, 0.7); }
+}
+
+/* Hyderabad pin */
+.map-location-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease 2.5s;
+}
+
+.india-map-wrapper.animated .map-location-pin {
+    opacity: 1;
+}
+
+.pin-dot {
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    border: 2.5px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(56,189,248,0.9), 0 0 40px rgba(56,189,248,0.4);
+    position: relative;
+    z-index: 3;
+}
+
+.pulse-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 14px; height: 14px;
+    border: 2px solid rgba(56,189,248,0.75);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: mapPulse 2.2s infinite ease-out;
+}
+.pulse-ring.delay { animation-delay: 1.1s; }
+
+@keyframes mapPulse {
+    0%   { width: 14px; height: 14px; opacity: 1; }
+    100% { width: 70px; height: 70px; opacity: 0; }
+}
+
+.pin-card {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    opacity: 0;
+    animation: none;
+}
+
+.pin-card::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px; height: 10px;
+    background: #fff;
+}
+
+.india-map-wrapper.animated .pin-card {
+    opacity: 1;
+    transition: opacity 0.4s ease 2.8s;
+}
+
+.city-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.city-title i { color: #0284c7; font-size: 0.75rem; }
+.city-desc { font-size: 0.7rem; color: #64748b; font-weight: 500; }
+
+/* Other cities */
+.city-marker {
+    position: absolute;
+    width: 7px; height: 7px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.india-map-wrapper.animated .city-marker {
+    opacity: 1;
+    transition-delay: 2.6s;
+}
+.city-marker:hover {
+    background: #38bdf8;
+    box-shadow: 0 0 12px #38bdf8;
+    transform: translate(-50%, -50%) scale(1.6);
+}
+
+/* RIGHT STATS */
+.map-stats-side {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-left: 10px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .map-content-grid {
         grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
     }
-    .secondary-links-grid {
+    .map-text-side { padding: 0; }
+    .map-subtitle { margin: 0 auto; }
+    .map-container { max-width: 280px; }
+    .map-stats-side {
+        flex-direction: row;
+        justify-content: center;
+        gap: 36px;
+        padding: 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 24px;
+    }
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    aspect-ratio: 280 / 350;
+}
+
+.india-border {
+    fill: rgba(30, 41, 59, 0.6);
+    stroke: #e2e8f0;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+}
+
+.india-map-wrapper.animated .india-border {
+    animation: drawMapOutline 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawMapOutline {
+    0%   { stroke-dashoffset: 1800; fill: transparent; }
+    70%  { stroke-dashoffset: 0; fill: transparent; }
+    100% { stroke-dashoffset: 0; fill: rgba(30, 41, 59, 0.65); }
+}
+
+
+
+/* ================= TCS-STYLE INDIA MAP ================= */
+.india-map-wrapper {
+    margin-top: 60px;
+    padding: 55px 40px;
+    background: #0b1120;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+/* Subtle grid like TCS */
+.india-map-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+.map-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 0.9fr;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+/* LEFT TEXT */
+.map-text-side { padding-right: 8px; }
+
+.map-eyebrow {
+    display: inline-block;
+    color: #38bdf8;
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    padding: 5px 14px;
+    border: 1px solid rgba(56,189,248,0.35);
+    border-radius: 20px;
+    background: rgba(56,189,248,0.08);
+    margin-bottom: 16px;
+}
+
+.map-title {
+    font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+    font-weight: 700;
+    color: #f8fafc;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.4px;
+}
+
+.map-subtitle {
+    color: #94a3b8;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+/* MAP CONTAINER */
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    aspect-ratio: 1000 / 1150;
+}
+
+.india-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+}
+
+.india-border {
+    stroke-dasharray: 2800;
+    stroke-dashoffset: 2800;
+    fill-opacity: 0.85;
+}
+
+.sri-lanka {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+}
+
+/* Draw animation */
+.india-map-wrapper.animated .india-border {
+    animation: drawIndia 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.india-map-wrapper.animated .sri-lanka {
+    animation: drawIndia 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
+}
+
+@keyframes drawIndia {
+    to { stroke-dashoffset: 0; }
+}
+
+/* ========== TCS-STYLE PINS ========== */
+.map-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* Main HQ pin */
+.hyderabad-pin {
+    opacity: 0;
+    transition: opacity 0.4s ease 2s;
+}
+.india-map-wrapper.animated .hyderabad-pin {
+    opacity: 1;
+}
+
+.pin-core {
+    width: 42px;
+    height: 42px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35), 0 0 0 3px rgba(56,189,248,0.35);
+    position: relative;
+    z-index: 3;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pin-core.small {
+    width: 28px;
+    height: 28px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3), 0 0 0 2px rgba(255,255,255,0.15);
+}
+
+.pin-core span,
+.pin-count {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0284c7;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pin-core.small span {
+    font-size: 0.7rem;
+    color: #0f172a;
+}
+
+.map-pin:hover .pin-core {
+    transform: scale(1.12);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.4), 0 0 0 4px rgba(56,189,248,0.45);
+}
+
+/* Pulse rings (HQ only) */
+.pin-pulse {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 42px; height: 42px;
+    border: 2px solid rgba(56,189,248,0.7);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: tcsPulse 2.4s infinite ease-out;
+}
+.pin-pulse.delay { animation-delay: 1.2s; }
+
+@keyframes tcsPulse {
+    0%   { width: 42px; height: 42px; opacity: 0.8; }
+    100% { width: 90px; height: 90px; opacity: 0; }
+}
+
+/* Tooltip */
+.pin-tooltip {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: #ffffff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+}
+
+.pin-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px; height: 10px;
+    background: #fff;
+}
+
+.pin-tooltip strong {
+    font-size: 0.8rem;
+    color: #0f172a;
+    font-weight: 700;
+}
+.pin-tooltip span {
+    font-size: 0.68rem;
+    color: #64748b;
+}
+
+.map-pin:hover .pin-tooltip,
+.hyderabad-pin .pin-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Show HQ tooltip by default after load */
+.india-map-wrapper.animated .hyderabad-pin .pin-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    transition-delay: 2.2s;
+}
+
+/* Other city pins fade in */
+.city-pin {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.india-map-wrapper.animated .city-pin {
+    opacity: 1;
+    transition-delay: 2.3s;
+}
+
+/* RIGHT STATS */
+.map-stats-side {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-left: 12px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-number {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #38bdf8;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .map-content-grid {
         grid-template-columns: 1fr;
+        text-align: center;
+        gap: 36px;
     }
-    .form-row {
-        grid-template-columns: 1fr;
+    .map-subtitle { margin: 0 auto; }
+    .map-container { max-width: 300px; }
+    .map-stats-side {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        padding: 24px 0 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .form-wrapper {
-        padding: 35px 25px;
-    }
+    .hyderabad-pin .pin-tooltip { display: none; }
 }
